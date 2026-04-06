@@ -28,11 +28,11 @@ function App() {
   }, []);
 
   return (
-    <>
-      <h1 style={{ margin: "3rem" }}> Hottest Cars in 2026</h1>
+    <div style={{ margin: "3rem" }}>
+      <h1> Hottest Cars in 2026</h1>
       {/* <img src="http://localhost:3000/image" /> */}
       {loading ? (
-        <div> Loading...</div>
+        <h3> Loading...</h3>
       ) : carsList.length ? (
         <div
           style={{
@@ -68,9 +68,9 @@ function App() {
           </div>
         </div>
       ) : (
-        <div>No Cars Found</div>
+        <h3>No Cars Found</h3>
       )}
-    </>
+    </div>
   );
 }
 
