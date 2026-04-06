@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-const serverName = `http://localhost:3000`;
+const awsServerUrl =
+  "https://zvhspa9kf0.execute-api.ap-south-2.amazonaws.com/newstage";
+
+const serverName2 = `http://localhost:3000`;
 
 function App() {
   const [carsList, setCarsList] = useState([]);
@@ -11,7 +14,7 @@ function App() {
   const fetchCarsList = async () => {
     setLoading(true);
     try {
-      const url = `${serverName}/list`;
+      const url = `${serverName2}/list`;
       const res = await fetch(url);
       const list = await res.json();
       console.log(list);
@@ -56,7 +59,8 @@ function App() {
             {carsList.map((item, i) => (
               <div key={i}>
                 <img
-                  src={`${serverName}/image?name=${item}`}
+                  src={`${awsServerUrl}/image?name=${item}`}
+                  crossOrigin="anonymous"
                   style={{
                     objectFit: "cover",
                     width: "600px",
